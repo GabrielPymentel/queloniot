@@ -71,3 +71,42 @@ updateSensors();
 updateWeather();
 setInterval(updateSensors, 30000);
 setInterval(updateWeather, 600000);
+
+// Tema persistente: usa a preferência salva; na primeira visita, respeita o sistema.
+(function setupTheme() {
+  const root = document.documentElement;
+  const button = document.getElementById('theme-toggle');
+  const icon = button?.querySelector('.theme-icon');
+  const label = button?.querySelector('.theme-text');
+  const meta = document.getElementById('theme-color-meta');
+  let saved = null;
+  try { saved = localStorage.getItem('queloniot-theme'); } catch (_) {}
+  const preferred = saved || (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  function apply(theme) {
+    root.dataset.theme = theme;
+    if (icon) icon.textContent = theme === 'dark' ? '☀' : '☾';
+    if (label) label.textContent = theme === 'dark' ? 'Modo claro' : 'Modo escuro';
+    if (button) button.setAttribute('aria-label', theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#111a16' : '#f5f7f3');
+  }
+  apply(preferred);
+  button?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('queloniot-theme', next); } catch (_) {}
+  });
+})();
+
+// Realça o item de navegação correspondente à seção visível.
+(function setupSectionNavigation() {
+  const links = [...document.querySelectorAll('.nav-link')];
+  const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  if (!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-20% 0px -65% 0px' });
+  sections.forEach(section => observer.observe(section));
+})();
