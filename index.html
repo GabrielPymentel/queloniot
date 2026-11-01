@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7f3">
+  <meta name="theme-color" content="#f5f7f3" id="theme-color-meta">
   <meta name="description" content="QuelônIoT — monitoramento ambiental para conservação de quelônios.">
   <title>QuelônIoT | Monitoramento ambiental</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,7 @@
         <a class="nav-link" href="#chocadeira"><span>⌁</span> Chocadeira</a>
         <a class="nav-link" href="#clima"><span>☼</span> Clima regional</a>
         <a class="nav-link" href="#historico"><span>▥</span> Histórico</a>
+        <a class="nav-link" href="#sobre"><span>ⓘ</span> O projeto</a>
       </nav>
 
       <div class="sidebar-note">
@@ -45,6 +46,7 @@
           <p class="subtitle">Acompanhe as condições ambientais da chocadeira e do entorno.</p>
         </div>
         <div class="topbar-right">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Alternar tema"><span class="theme-icon" aria-hidden="true">☾</span><span class="theme-text">Modo escuro</span></button>
           <div class="live-indicator"><span class="pulse"></span><span id="connection-label">Conectando</span></div>
           <div class="date-chip" id="current-date">—</div>
         </div>
@@ -52,9 +54,10 @@
 
       <section class="welcome-strip">
         <div class="welcome-copy">
-          <span class="eyebrow light">ACOMPANHAMENTO AMBIENTAL</span>
-          <h2>Um olhar atento sobre o ambiente.</h2>
-          <p>Monitoramento local e condições meteorológicas em um só lugar.</p>
+          <span class="eyebrow light">PROJETO DE MONITORAMENTO • PARINTINS, AM</span>
+          <h2>Acompanhar hoje para conservar amanhã.</h2>
+          <p>Informações ambientais da chocadeira e do entorno, organizadas para apoiar o manejo e a pesquisa.</p>
+          <a class="welcome-link" href="#chocadeira">Ver dados da chocadeira <span aria-hidden="true">→</span></a>
         </div>
         <div class="welcome-art" aria-hidden="true">
           <svg viewBox="0 0 260 130" fill="none"><path d="M4 93c30-21 57-21 86 0s57 21 86 0 54-21 80 0" stroke="#B7D9C3" stroke-width="2"/><path d="M4 108c30-21 57-21 86 0s57 21 86 0 54-21 80 0" stroke="#B7D9C3" stroke-width="2" opacity=".6"/><path d="M133 19c-25 0-44 15-44 35 0 27 22 49 44 61 22-12 44-34 44-61 0-20-19-35-44-35Z" stroke="#E3EFE4" stroke-width="2"/><path d="M133 23v86M92 48l41 13 41-13M100 82l33-21 33 21M112 26l21 35 21-35" stroke="#E3EFE4" stroke-width="1.5" opacity=".9"/></svg>
@@ -88,7 +91,8 @@
             <div class="metric-foot" id="rain-description">Aguardando leitura do sensor</div>
           </article>
         </div>
-        <div class="data-footnote"><span>Última coleta</span><strong id="last-reading">Aguardando primeiro registro…</strong><span class="separator">•</span><span>Atualização automática a cada 30 segundos</span></div>
+        <div class="data-footnote"><span>Última coleta</span><strong id="last-reading">Aguardando primeiro registro…</strong><span class="separator">•</span><span>Consulta automática a cada 30 segundos</span></div>
+        <div class="interpretation-note"><span class="info-mark">i</span><p><strong>Como interpretar:</strong> estas são leituras dos sensores instalados. Elas descrevem o ambiente monitorado e devem ser analisadas considerando a posição do sensor, a espécie acompanhada e as condições específicas de incubação.</p></div>
       </section>
 
       <section class="section-block" id="clima">
@@ -109,7 +113,7 @@
             <div class="weather-detail"><span>Atualizado em</span><strong id="weather-updated">—</strong></div>
           </div>
         </div>
-        <p class="source-note">Condições meteorológicas externas obtidas por coordenadas geográficas. Não representam medições feitas dentro da chocadeira.</p>
+        <p class="source-note">Fonte: OpenWeather. São condições meteorológicas externas estimadas para as coordenadas configuradas — não são medições feitas dentro da chocadeira.</p>
       </section>
 
       <section class="section-block" id="historico">
@@ -127,6 +131,12 @@
         </div>
       </section>
 
+      <section class="about-panel" id="sobre">
+        <div class="about-heading"><span class="section-kicker">SOBRE O PROJETO</span><h2>Tecnologia aplicada à conservação</h2></div>
+        <p>O QuelônIoT integra sensores ambientais, conectividade e visualização de dados para apoiar o acompanhamento de chocadeiras artesanais de quelônios. A proposta nasceu no contexto do manejo comunitário realizado na região de Parintins, Amazonas.</p>
+        <div class="about-tags"><span>Internet das Coisas</span><span>Monitoramento ambiental</span><span>Conservação amazônica</span></div>
+        <p class="about-disclaimer">A plataforma é uma ferramenta de apoio ao acompanhamento. A interpretação biológica e as decisões de manejo devem considerar orientação técnica especializada.</p>
+      </section>
       <footer class="page-footer"><span>QuelônIoT</span> · Monitoramento ambiental para conservação de quelônios <span class="footer-right">Dados locais + meteorologia regional</span></footer>
     </main>
   </div>
