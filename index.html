@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f3">
+  <meta name="description" content="QuelônIoT — monitoramento ambiental para conservação de quelônios.">
+  <title>QuelônIoT | Monitoramento ambiental</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="QuelônIoT, início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M24 5.5c-8.9 0-16.1 6.1-16.1 14.2 0 10.3 8.1 18.5 16.1 22.8 8-4.3 16.1-12.5 16.1-22.8C40.1 11.6 32.9 5.5 24 5.5Z" stroke="currentColor" stroke-width="2.2"/><path d="M24 9v29M10 18.5l14 4 14-4M13 30l11-7.5L35 30M17.5 11.5 24 22.5l6.5-11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 43c5-2.5 9-2.5 14 0s9 2.5 14 0 7-2.5 10-1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span><strong>Quelôn<span>IoT</span></strong><small>MONITORAMENTO AMBIENTAL</small></span>
+      </a>
+
+      <div class="side-label">PLATAFORMA</div>
+      <nav class="navigation" aria-label="Navegação principal">
+        <a class="nav-link active" href="#visao-geral"><span>◫</span> Visão geral</a>
+        <a class="nav-link" href="#chocadeira"><span>⌁</span> Chocadeira</a>
+        <a class="nav-link" href="#clima"><span>☼</span> Clima regional</a>
+        <a class="nav-link" href="#historico"><span>▥</span> Histórico</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="note-icon">✳</div>
+        <strong>Tecnologia a serviço da conservação</strong>
+        <p>Dados ambientais para apoiar o acompanhamento e o estudo de quelônios amazônicos.</p>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span> Plataforma de pesquisa <span class="version">v0.1</span></div>
+    </aside>
+
+    <main class="main-content" id="visao-geral">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">MONITORAMENTO • PARINTINS, AMAZONAS</div>
+          <h1>Visão geral</h1>
+          <p class="subtitle">Acompanhe as condições ambientais da chocadeira e do entorno.</p>
+        </div>
+        <div class="topbar-right">
+          <div class="live-indicator"><span class="pulse"></span><span id="connection-label">Conectando</span></div>
+          <div class="date-chip" id="current-date">—</div>
+        </div>
+      </header>
+
+      <section class="welcome-strip">
+        <div class="welcome-copy">
+          <span class="eyebrow light">ACOMPANHAMENTO AMBIENTAL</span>
+          <h2>Um olhar atento sobre o ambiente.</h2>
+          <p>Monitoramento local e condições meteorológicas em um só lugar.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <svg viewBox="0 0 260 130" fill="none"><path d="M4 93c30-21 57-21 86 0s57 21 86 0 54-21 80 0" stroke="#B7D9C3" stroke-width="2"/><path d="M4 108c30-21 57-21 86 0s57 21 86 0 54-21 80 0" stroke="#B7D9C3" stroke-width="2" opacity=".6"/><path d="M133 19c-25 0-44 15-44 35 0 27 22 49 44 61 22-12 44-34 44-61 0-20-19-35-44-35Z" stroke="#E3EFE4" stroke-width="2"/><path d="M133 23v86M92 48l41 13 41-13M100 82l33-21 33 21M112 26l21 35 21-35" stroke="#E3EFE4" stroke-width="1.5" opacity=".9"/></svg>
+        </div>
+      </section>
+
+      <section class="section-block" id="chocadeira">
+        <div class="section-heading">
+          <div><span class="section-kicker">01 / MONITORAMENTO LOCAL</span><h2>Ambiente da chocadeira</h2></div>
+          <div class="section-meta"><span class="status-dot" id="sensor-dot"></span><span id="sensor-status">Aguardando dados</span></div>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon temp">♨</span><span class="metric-label">TEMPERATURA DO AR</span></div>
+            <div class="metric-value"><span id="temperature">—</span><small>°C</small></div>
+            <div class="metric-foot">Leitura do sensor DHT11</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon humidity">◉</span><span class="metric-label">UMIDADE DO AR</span></div>
+            <div class="metric-value"><span id="air-humidity">—</span><small>%</small></div>
+            <div class="metric-foot">Umidade relativa local</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span class="metric-icon soil">♧</span><span class="metric-label">UMIDADE DO SOLO</span></div>
+            <div class="metric-value"><span id="soil-humidity">—</span><small>%</small></div>
+            <div class="metric-foot">Leitura do sensor YL-69</div>
+          </article>
+          <article class="metric-card rain-card">
+            <div class="metric-top"><span class="metric-icon rain">⌁</span><span class="metric-label">DETECÇÃO DE CHUVA</span></div>
+            <div class="rain-state" id="rain-state">—</div>
+            <div class="metric-foot" id="rain-description">Aguardando leitura do sensor</div>
+          </article>
+        </div>
+        <div class="data-footnote"><span>Última coleta</span><strong id="last-reading">Aguardando primeiro registro…</strong><span class="separator">•</span><span>Atualização automática a cada 30 segundos</span></div>
+      </section>
+
+      <section class="section-block" id="clima">
+        <div class="section-heading">
+          <div><span class="section-kicker">02 / CONTEXTO METEOROLÓGICO</span><h2>Clima regional</h2></div>
+          <div class="source-label"><span class="weather-symbol">☼</span> OpenWeather</div>
+        </div>
+        <div class="weather-panel">
+          <div class="weather-main">
+            <div class="weather-place"><span class="pin">⌖</span> Localização configurada</div>
+            <div class="weather-temp"><span id="weather-temperature">—</span><small>°C</small></div>
+            <div class="weather-description" id="weather-description">Consultando condições atuais…</div>
+          </div>
+          <div class="weather-details">
+            <div class="weather-detail"><span>Umidade externa</span><strong id="weather-humidity">—</strong></div>
+            <div class="weather-detail"><span>Sensação térmica</span><strong id="weather-feels">—</strong></div>
+            <div class="weather-detail"><span>Velocidade do vento</span><strong id="weather-wind">—</strong></div>
+            <div class="weather-detail"><span>Atualizado em</span><strong id="weather-updated">—</strong></div>
+          </div>
+        </div>
+        <p class="source-note">Condições meteorológicas externas obtidas por coordenadas geográficas. Não representam medições feitas dentro da chocadeira.</p>
+      </section>
+
+      <section class="section-block" id="historico">
+        <div class="section-heading">
+          <div><span class="section-kicker">03 / ACOMPANHAMENTO</span><h2>Registros recentes</h2></div>
+          <span class="muted-small">Últimas 8 leituras disponíveis</span>
+        </div>
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>HORÁRIO</th><th>TEMPERATURA</th><th>UMIDADE DO AR</th><th>UMIDADE DO SOLO</th><th>CHUVA</th></tr></thead>
+              <tbody id="history-body"><tr><td colspan="5" class="empty-state">Aguardando dados do Supabase…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>QuelônIoT</span> · Monitoramento ambiental para conservação de quelônios <span class="footer-right">Dados locais + meteorologia regional</span></footer>
+    </main>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
